@@ -9,6 +9,6 @@ public interface BookService {
     List<Book> findAll();
     Optional<Book> findById(long id);
     void addBook(Book book);
-    Book editBook(Book book);
+    void editBook(Book book);
     void deleteBook(long id);
 }

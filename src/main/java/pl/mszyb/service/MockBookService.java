@@ -1,6 +1,8 @@
 package pl.mszyb.service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 import pl.mszyb.model.Book;
 
 import java.util.ArrayList;
@@ -43,8 +45,14 @@ public class MockBookService implements BookService {
     }
 
     @Override
-    public Book editBook(Book book) {
-        return null;
+    public void editBook(Book newBook) {
+        Optional<Book> optionalBook = list.stream()
+                .filter(book -> book.getId().equals(newBook.getId()))
+                .findFirst();
+        Book bookToEdit = optionalBook.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "book with this id not found"));
+        newBook.setId(bookToEdit.getId());
+        list.remove(bookToEdit);
+        list.add(newBook);
     }
 
     @Override

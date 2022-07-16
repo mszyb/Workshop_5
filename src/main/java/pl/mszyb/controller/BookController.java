@@ -36,4 +36,9 @@ public class BookController {
     public void addBook(@RequestBody Book book){
         mockBookService.addBook(book);
     }
+
+    @PutMapping
+    public void editBook(@RequestBody Book book){
+        mockBookService.editBook(book);
+    }
 }

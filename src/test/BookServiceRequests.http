@@ -7,3 +7,7 @@ Content-Type: application/json
 
 {"isbn":"34321","title":"Thinking in Java", "publisher":"Helion","type":"programming", "author":"Bruce Eckel"}
 ###
+PUT localhost:8080/books/
+Content-Type: application/json
+
+{"id":2, "isbn":"34321","title":"Thinking in Java", "publisher":"Helion","type":"programming", "author":"Bruce Eckel"}
