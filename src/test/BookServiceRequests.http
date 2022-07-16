@@ -5,9 +5,11 @@ GET localhost:8080/books/1
 POST localhost:8080/books/
 Content-Type: application/json
 
-{"isbn":"34321","title":"Thinking in Java", "publisher":"Helion","type":"programming", "author":"Bruce Eckel"}
+{"isbn":"22222","title":"Super książka", "publisher":"PWN","type":"beletrystyka", "author":"Marcin Jan"}
 ###
 PUT localhost:8080/books/
 Content-Type: application/json
 
 {"id":2, "isbn":"34321","title":"Thinking in Java", "publisher":"Helion","type":"programming", "author":"Bruce Eckel"}
+###
+DELETE localhost:8080/books/4

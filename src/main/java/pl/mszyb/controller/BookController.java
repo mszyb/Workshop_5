@@ -41,4 +41,9 @@ public class BookController {
     public void editBook(@RequestBody Book book){
         mockBookService.editBook(book);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteBook(@PathVariable long id){
+        mockBookService.deleteBook(id);
+    }
 }
