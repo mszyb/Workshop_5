@@ -1,0 +1,9 @@
+GET localhost:8080/books
+###
+GET localhost:8080/books/1
+###
+POST localhost:8080/books/
+Content-Type: application/json
+
+{"isbn":"34321","title":"Thinking in Java", "publisher":"Helion","type":"programming", "author":"Bruce Eckel"}
+###
