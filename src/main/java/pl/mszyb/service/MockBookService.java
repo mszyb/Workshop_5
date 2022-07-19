@@ -50,8 +50,8 @@ public class MockBookService implements BookService {
                 .filter(book -> book.getId().equals(newBook.getId()))
                 .findFirst()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "book with this id not found"));
-        list.remove(bookToEdit);
-        list.add(newBook);
+        int index = list.indexOf(bookToEdit);
+        list.set(index, newBook);
     }
 
     @Override
