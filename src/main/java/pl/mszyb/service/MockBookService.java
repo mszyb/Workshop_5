@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class MockBookService implements BookService {
     private List<Book> list;
-    private long nextId;
+    private static long nextId;
 
     public MockBookService() {
         list = new ArrayList<>();
@@ -46,11 +46,10 @@ public class MockBookService implements BookService {
 
     @Override
     public void editBook(Book newBook) {
-        Optional<Book> optionalBook = list.stream()
+        Book bookToEdit = list.stream()
                 .filter(book -> book.getId().equals(newBook.getId()))
-                .findFirst();
-        Book bookToEdit = optionalBook.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "book with this id not found"));
-        newBook.setId(bookToEdit.getId());
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "book with this id not found"));
         list.remove(bookToEdit);
         list.add(newBook);
     }
